@@ -1,0 +1,377 @@
+/* 全局重置与基础变量 - 适配banner微光粒子质感 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #6485b8;
+    --light-blue-gray: #eff2f7;
+    --bg-gray: #f8fafc;
+    --text-normal: #34495e;
+    --text-secondary: #697a8c;
+    --border-color: #e2e8f0;
+    --accent-light: #eaf0f7;
+    --glow-subtle: rgba(100, 133, 184, 0.08);
+    --card-shadow: 0 2px 16px var(--glow-subtle);
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 18px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background-color: var(--bg-gray);
+    color: var(--text-normal);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Banner 头部 */
+.banner {
+    width: 100%;
+    height: 280px;
+    background-image: url('./assets/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(234,240,247,0.78) 100%);
+    backdrop-filter: blur(3px);
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.banner-title {
+    font-size: 42px;
+    font-weight: 600;
+    color: var(--text-normal);
+    margin-bottom: 8px;
+}
+
+.banner-subtitle {
+    font-size: 18px;
+    color: var(--primary-blue);
+    font-weight: 400;
+}
+
+/* 主容器 */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* 通用卡片区块 */
+.card-section {
+    background-color: #ffffff;
+    border-radius: var(--radius-md);
+    box-shadow: var(--card-shadow);
+    padding: 32px 28px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-color);
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid transparent;
+    background: linear-gradient(90deg, var(--accent-light), rgba(100,133,184,0.1), var(--accent-light));
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+/* 两栏信息网格 */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px 24px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.info-label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    min-width: 72px;
+}
+
+.info-value {
+    color: var(--text-normal);
+    font-weight: 400;
+}
+
+.link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--primary-blue);
+    transition: all 0.2s ease;
+}
+
+.link:hover {
+    color: #365785;
+    border-bottom-color: #365785;
+}
+
+/* 邮箱复制行 */
+.email-row {
+    flex-wrap: nowrap;
+}
+
+.copy-btn {
+    margin-left: 8px;
+    padding: 4px 12px;
+    border: 1px solid rgba(100, 133, 184, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--primary-blue);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    box-shadow: 0 1px 4px var(--glow-subtle);
+}
+
+.copy-btn:hover {
+    background: linear-gradient(135deg, #6485b8 0%, #7a99c7 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(100, 133, 184, 0.25);
+    border-color: transparent;
+}
+
+/* 技能标签 */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-tag {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #eaf0f7 0%, rgba(230, 238, 248, 0.9) 100%);
+    color: var(--primary-blue);
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 1px 6px var(--glow-subtle);
+    border: 1px solid rgba(100, 133, 184, 0.06);
+}
+
+/* 项目经历 */
+.project-item {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--light-blue-gray);
+}
+
+.project-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-title {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text-normal);
+}
+
+.project-time {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.project-role {
+    color: var(--primary-blue);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.project-desc {
+    color: var(--text-normal);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.project-tech {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.tech-text {
+    color: var(--primary-blue);
+    font-weight: 500;
+}
+
+/* 教育背景 */
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.edu-school {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text-normal);
+}
+
+.edu-time {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.edu-major {
+    color: var(--text-normal);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.edu-courses {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* 证书荣誉列表 */
+.awards-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.award-item {
+    padding-left: 8px;
+    color: var(--text-normal);
+    font-size: 15px;
+    border-left: 3px solid var(--primary-blue);
+}
+
+/* 自我评价 */
+.self-text p {
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: var(--text-normal);
+}
+
+/* 底部 */
+.footer {
+    text-align: center;
+    padding: 32px 20px 48px;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background: linear-gradient(135deg, #6485b8 0%, #7a99c7 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px var(--glow-subtle);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(100, 133, 184, 0.3);
+}
+
+.copyright {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+/* 复制成功Toast */
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color: rgba(44, 62, 80, 0.9);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* 移动端响应式适配 */
+@media (max-width: 768px) {
+    .banner {
+        height: 200px;
+    }
+
+    .banner-title {
+        font-size: 30px;
+    }
+
+    .banner-subtitle {
+        font-size: 15px;
+    }
+
+    .container {
+        padding: 24px 16px;
+    }
+
+    .card-section {
+        padding: 20px 16px;
+    }
+
+    .project-header,
+    .edu-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .email-row {
+        flex-wrap: wrap;
+    }
+}
